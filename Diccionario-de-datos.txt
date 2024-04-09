@@ -1,0 +1,83 @@
+Diccionario de datos del GRUPO 2 (Base de Datos de Colegio)
+
+Tabla "COLEGIO":
+
+id: bigint (clave primaria) - Identificador único del colegio.
+id_comuna: bigint (clave foránea) - Identificador de la comuna a la que pertenece el colegio.
+nombre: text - Nombre del colegio.
+
+Tabla "COMUNA":
+
+id: bigint (clave primaria) - Identificador único de la comuna.
+nombre: text - Nombre de la comuna.
+
+Tabla "EMPLEADO":
+
+id: bigint (clave primaria) - Identificador único del empleado.
+id_sueldo: bigint (clave foránea) - Identificador del sueldo asociado al empleado.
+id_colegio: bigint (clave foránea) - Identificador del colegio al que pertenece el empleado.
+id_comuna: bigint (clave foránea) - Identificador de la comuna a la que pertenece el empleado.
+rol: text - Rol del empleado en el colegio.
+
+Tabla "PROFESOR":
+
+id: bigint (clave primaria) - Identificador único del profesor.
+id_empleado: bigint (clave foránea) - Identificador del empleado asociado al profesor.
+nombre: text - Nombre del profesor.
+
+Tabla "SUELDO":
+
+id: bigint (clave primaria) - Identificador único del sueldo.
+monto: bigint - Monto del sueldo.
+
+Tabla "ALUMNO":
+
+id: bigint (clave primaria) - Identificador único del alumno.
+id_comuna: bigint (clave foránea) - Identificador de la comuna a la que pertenece el alumno.
+id_colegio: bigint (clave foránea) - Identificador del colegio al que pertenece el alumno.
+id_apoderado: bigint (clave foránea) - Identificador del apoderado del alumno.
+nombre: text - Nombre del alumno.
+
+Tabla "APODERADO":
+
+id: bigint (clave primaria) - Identificador único del apoderado.
+id_comuna: bigint (clave foránea) - Identificador de la comuna a la que pertenece el apoderado.
+nombre: text - Nombre del apoderado.
+asociacion: text - Asociación del apoderado.
+
+Tabla "CURSO":
+
+id: bigint (clave primaria) - Identificador único del curso.
+codigo_curso: text - Código del curso.
+
+Tabla "ASISTENCIA":
+
+id: bigint (clave primaria) - Identificador único de la asistencia.
+id_franja_horaria: bigint (clave foránea) - Identificador del bloque de franja horaria.
+id_alu_curso: bigint (clave foránea) - identificador de alu_curso.
+presente: boolean - Indicador de asistencia (true si está presente, false si está ausente).
+fecha: date - Fecha de la asistencia.
+
+Tabla "FRANJA_HORARIA":
+
+id: bigint (clave primaria) - Identificador único de la franja horaria.
+bloque: integer - Número de bloque de la franja horaria.
+
+Tabla "PROF_CURSO":
+
+id: bigint (clave primaria) - Identificador único del registro.
+id_profesor: bigint (clave foránea) - Identificador del profesor.
+id_curso: bigint (clave foránea) - Identificador del curso.
+id_franja_horaria: bigint (clave foránea) - Identificador del bloque de franja horaria.
+PROFESOR_JEFE: boolean - Indicador si el profesor es jefe de curso.
+
+Tabla "PLANTILLA_CURSO":
+
+id: bigint (clave primaria) - Identificador único de la plantilla de curso.
+id_curso: bigint (clave foránea) - Identificador del curso.
+
+Tabla "ALU_CURSO":
+id: bigint (clave primaria) - Identificador único del registro.
+id_alumno: bigint (clave foránea) - Identificador del alumno.
+id_curso: bigint (clave foránea) - Identificador del curso.
+generacion: date - Año de generación del registro.
