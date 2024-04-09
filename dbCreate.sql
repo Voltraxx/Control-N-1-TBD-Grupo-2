@@ -1,7 +1,3 @@
---crear base de datos
-CREATE DATABASE DB_COLEGIO;
-
-
 --creación de tablas
 BEGIN;
 
